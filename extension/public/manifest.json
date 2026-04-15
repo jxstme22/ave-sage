@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "AVE SAGE Intelligence",
+  "version": "1.0.0",
+  "description": "AI-powered on-chain trading intelligence panel — wallet extension style",
+  "permissions": [],
+  "host_permissions": ["http://localhost:8000/*"],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "AVE SAGE",
+    "default_icon": {
+      "16": "icon-16.png",
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  }
+}

@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  sage:
+    build:
+      context: .
+      dockerfile: scripts/Dockerfile.txt
+    container_name: ave-sage
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - AVE_API_KEY=${AVE_API_KEY}
+      - AVE_SECRET_KEY=${AVE_SECRET_KEY}
+      - API_PLAN=${API_PLAN:-free}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    volumes:
+      - sage-data:/app/data
+      - ./config.yaml:/app/config.yaml:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  sage-data:
+    driver: local

@@ -1,0 +1,64 @@
+# ── Secrets — NEVER commit real keys ─────────────────────────────────────────
+.env
+*.env.local
+*.env.production
+*.env.secrets
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+.venv/
+venv/
+env/
+.eggs/
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+node_modules/
+web/node_modules/
+extension/node_modules/
+web/dist/
+extension/dist/
+web/.vite/
+extension/.vite/
+*.tsbuildinfo
+
+# ── Data & Persisted State ────────────────────────────────────────────────────
+data/
+*.db
+*.sqlite
+
+# ── Vendor / Third-party skill dirs ──────────────────────────────────────────
+ave-cloud-skill/
+
+# ── OS / Editor ───────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+.vscode/settings.json
+.idea/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Test & Coverage ───────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+{core,skills,agents,dashboard,scripts,docs,tests,.openclaw,.claude-plugin}/
+.openclaw/
+.claude-plugin/
+skills/
+design/

@@ -1,0 +1,44 @@
+ave:
+  api_key: "${AVE_API_KEY}"
+  api_plan: "free"           # free / normal / pro
+  secret_key: "${AVE_SECRET_KEY}"
+  chains:
+    - solana
+
+collection:
+  significance_threshold: 0.30
+  price_change_min: 0.02
+  volume_spike_multiplier: 2.0
+  max_events_per_hour: 500
+  poll_interval_seconds: 45
+  signal_window_seconds: 900
+
+memory:
+  vector_db: "chromadb"
+  embedding_provider: "sentence_transformer"  # or "openai"
+  embedding_model: "all-MiniLM-L6-v2"
+  collection_name: "ave_sage_memory"
+  persist_dir: "./data/chroma"
+  max_context_chunks: 8
+  similarity_threshold: 0.60
+  lookback_hours: 168
+
+agent:
+  llm_provider: "openrouter"
+  reasoning_model: "anthropic/claude-sonnet-4-20250514"
+  trade_confidence_min: 0.65     # lowered from 0.70 for bootstrap phase
+  dry_run: false              # SET FALSE FOR LIVE TRADING
+  max_position_usd: 2.0
+  take_profit_pct: 0.08
+  stop_loss_pct: 0.04
+  risk_warn_threshold: 0.65
+  assets_id: "${PROXY_ASSETS_ID}"    # Set via PROXY_ASSETS_ID in .env (run scripts/create_wallet.py to generate)
+
+dashboard:
+  host: "0.0.0.0"
+  port: 8000
+  enable_websocket: true
+
+telegram:
+  bot_token: "${TELEGRAM_BOT_TOKEN}"
+  admin_chat_ids: []
